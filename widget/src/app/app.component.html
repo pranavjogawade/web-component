@@ -1,1 +1,11 @@
 <h1>{{title}}</h1>
+
+<div *ngIf="phoneList">
+  <ul>
+    <li *ngFor="let phone of phoneList">
+      phone-: {{phone}}
+    </li>
+  </ul>
+</div>
+
+<div (click)="valueChanged()"> click</div>

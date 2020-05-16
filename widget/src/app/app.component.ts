@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +7,15 @@ import { Component, Input } from '@angular/core';
 })
 export class AppComponent {
   @Input() title;
+  @Input() phoneList;
+  @Output() valueChange = new EventEmitter();
+  counter = 10;
+  constructor() {
+    console.log('this.phoneList',this.phoneList);
+  }
+  valueChanged() { // You can give any function name
+    this.counter = this.counter + 1;
+    this.valueChange.emit(this.counter);
+    console.log('Emitted by widget');
+}
 }
